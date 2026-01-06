@@ -4,3 +4,8 @@
   --font-roboto: "Roboto", sans-serif;
   --font-jost: "Jost", sans-serif;
 }
+@property --sun-pos {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 120%;
+}
