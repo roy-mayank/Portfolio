@@ -1,11 +1,13 @@
 <script lang="ts">
 	import Header from './Header.svelte';
 	import './layout.css';
+	import "../app.css";
+
 
 	let { children } = $props();
 </script>
 
-<div class="app">
+<div class="app items-center">
 	<Header />
 
 	<main>
@@ -19,14 +21,24 @@
 	</footer>
 </div>
 
-<style>
+<style lang="postcss">
+	@reference "tailwindcss";
 	.app {
 		display: flex;
 		flex-direction: column;
 		min-height: 100vh;
 	}
+	
+	/* .roboto-<uniquifier> {
+	font-family: "Roboto", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: <weight>;
+	font-style: normal;
+	font-variation-settings:
+		"wdth" 100;
+	} */
 
-	main {
+	/* main {
 		flex: 1;
 		display: flex;
 		flex-direction: column;
@@ -35,7 +47,7 @@
 		max-width: 64rem;
 		margin: 0 auto;
 		box-sizing: border-box;
-	}
+	} */
 
 	footer {
 		display: flex;
@@ -54,4 +66,5 @@
 			padding: 12px 0;
 		}
 	}
+
 </style>

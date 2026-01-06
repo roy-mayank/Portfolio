@@ -1,45 +1,45 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
-	import logo from '$lib/images/svelte-logo.svg';
-	import github from '$lib/images/github.svg';
+
+	let menuState = $state(true);
+	function toggleMenu() {
+		menuState = !menuState;
+	}
+	
 </script>
 
-<header>
-	<div class="corner">
-		<a href="https://svelte.dev/docs/kit">
-			<img src={logo} alt="SvelteKit" />
-		</a>
-	</div>
+<header class="font-jost relative m-6 flex flex-col bg-white p-4 shadow-sm rounded-2xl md:m-8 md:flex-row-reverse items-center md:p-6 md:rounded-4xl w-2/3 gap-5">
+    
+    <nav class="md:w-full flex flex-row justify-center xl:justify-end">
+        <ul class="flex flex-row items-center justify-between md:justify-center px-2 gap-2 sm:gap-14 md:gap-14 text-[10px] sm:text-xs ">
+            
+            <li class="group relative flex items-center justify-center hover:scale-110 transition-transform" aria-current={page.url.pathname === '/' ? 'page' : undefined}>
+                <a href={resolve('/')} class="font-bold tracking-widest text-black/70 transition-colors hover:text-[#ff3e00]">
+                    ME
+                </a>
+                <div class="hidden md:group-aria-[current=page]:block absolute -top-6 left-1/2 -translate-x-1/2 w-0 h-0 border-x-[6px] border-x-transparent border-t-[6px] border-t-[#ff3e00]"></div>
+            </li>
 
-	<nav>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
-		</svg>
-		<ul>
-			<li aria-current={page.url.pathname === '/' ? 'page' : undefined}>
-				<a href={resolve('/')}>Home</a>
-			</li>
-			<li aria-current={page.url.pathname === '/about' ? 'page' : undefined}>
-				<a href={resolve('/about')}>About</a>
-			</li>
-			<li aria-current={page.url.pathname.startsWith('/sverdle') ? 'page' : undefined}>
-				<a href={resolve('/sverdle')}>Sverdle</a>
-			</li>
-		</ul>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
-		</svg>
-	</nav>
+            <li class="group relative flex items-center justify-center hover:scale-110 transition-transform" aria-current={page.url.pathname === '/moviegame' ? 'page' : undefined}>
+                <a href={resolve('/moviegame')} class="font-bold tracking-widest text-black/70 transition-colors hover:text-[#ff3e00]">
+                    TMDB GAME
+                </a>
+                <div class="hidden md:group-aria-[current=page]:block absolute -top-6 left-1/2 -translate-x-1/2 w-0 h-0 border-x-[6px] border-x-transparent border-t-[6px] border-t-[#ff3e00]"></div>
+            </li>
 
-	<div class="corner">
-		<a href="https://github.com/sveltejs/kit">
-			<img src={github} alt="GitHub" />
-		</a>
-	</div>
+            <li class="group relative flex items-center justify-center hover:scale-110 transition-transform" aria-current={page.url.pathname.startsWith('/blog') ? 'page' : undefined}>
+                <a href={resolve('/blog')} class="font-bold tracking-widest text-black/70 transition-colors hover:text-[#ff3e00]">
+                    BLOG
+                </a>
+                <div class="hidden md:group-aria-[current=page]:block absolute -top-6 left-1/2 -translate-x-1/2 w-0 h-0 border-x-[6px] border-x-transparent border-t-[6px] border-t-[#ff3e00]"></div>
+            </li>
+            
+        </ul>
+    </nav>
 </header>
 
-<style>
+<!-- <style>
 	header {
 		display: flex;
 		justify-content: space-between;
@@ -127,4 +127,4 @@
 	a:hover {
 		color: var(--color-theme-1);
 	}
-</style>
+</style> -->
