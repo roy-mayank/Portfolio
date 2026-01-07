@@ -9,7 +9,8 @@
 	
 </script>
 
-<header class="font-jost relative m-6 flex flex-col bg-white p-4 shadow-sm rounded-2xl md:m-8 md:flex-row-reverse items-center md:p-6 md:rounded-4xl w-2/3 gap-5">
+<div class="flex flex-col items-center">
+<div class="font-jost justify-center relative m-6 flex flex-col bg-white p-4 shadow-sm rounded-2xl md:m-8 md:flex-row-reverse items-center md:p-6 md:rounded-4xl w-2/3 gap-5">
     
     <nav class="md:w-full flex flex-row justify-center xl:justify-end">
         <ul class="flex flex-row items-center justify-between md:justify-center px-2 gap-2 sm:gap-14 md:gap-14 text-[10px] sm:text-xs ">
@@ -37,7 +38,7 @@
             
         </ul>
     </nav>
-</header>
+</div></div>
 
 <!-- <style>
 	header {

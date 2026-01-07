@@ -1,59 +1,29 @@
 <script lang="ts">
-	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcomeFallback from '$lib/images/svelte-welcome.png';
+		import plane from '$lib/images/plane.png';
 </script>
 
 <svelte:head>
 	<title>Home</title>
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
-		
-<section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcomeFallback} alt="Welcome" />
-			</picture>
-		</span>
 
-		to your new<br />SvelteKit app
-	</h1>
+<div class="group relative flex flex-col items-center justify-end h-screen overflow-hidden cursor-crosshair text-white">
+    <img 
+        src={plane} 
+        alt="plane" 
+        class="absolute bottom-0 w-84 opacity-100 scale-75 translate-y-24 transition-all duration-1000 ease-out group-hover:opacity-100 group-hover:-translate-y-12 group-hover:scale-120 pointer-events-none"
+    />
 
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
+    <div class="flex flex-col-reverse justify-center items-start pb-20 z-10">
+        <h1 class="font-bold font-jost text-8xl tracking-wider cursor-default">
+            MAYANK ROY
+        </h1>
+        <p class="text-xl font-semibold font-jost ml-1 mb-2 oldstyle-nums">Maximizing shareholder value since 2003</p>
+    </div>
+</div>
 
-	<Counter />
-</section>
 
 <style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 0.6;
-	}
 
-	h1 {
-		width: 100%;
-	}
 
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
 </style>

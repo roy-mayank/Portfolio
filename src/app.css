@@ -1,5 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
+
+html,
+body,
+#svelte,
+[style*="display: contents"] {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 @theme {
   --font-roboto: "Roboto", sans-serif;
   --font-jost: "Jost", sans-serif;
@@ -7,5 +17,6 @@
 @property --sun-pos {
   syntax: "<percentage>";
   inherits: false;
+
   initial-value: 120%;
 }
