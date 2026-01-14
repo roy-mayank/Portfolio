@@ -12,7 +12,7 @@
         <Header />
     </div>
 
-	<main class="flex flex-col items-center pt-20">
+	<main class="flex flex-col items-center">
 		{@render children()}
 	</main>
 
