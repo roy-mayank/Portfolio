@@ -41,7 +41,7 @@
     <h2 class="uppercase text-sm opacity-60 mb-4">About Me</h2>
     <p class="text-4xl md:text-5xl font-bold mb-16">My Interests</p>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full pb-20">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
         
         <div class="group flex flex-col items-center justify-center p-10 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300">
             <span class="material-symbols-outlined text-5xl mb-6 text-blue-400 group-hover:scale-110 transition-transform">code</span>
@@ -60,12 +60,27 @@
 
     </div>
 </div>
-<div class="font-jost flex flex-col text-white items-center w-full">
-    <p class="text-4xl font-bold mb-10 opacity-80">Latest Resume</p>
+<div class="font-jost flex flex-col items-center w-full px-6 py-16 md:py-24">
+    <div class="max-w-3xl w-full space-y-8 text-center md:text-left bg-white/5 border border-white/10 p-8 md:p-12 rounded-3xl backdrop-blur-sm">
+        <p class="text-lg md:text-xl text-white/90 leading-relaxed font-light">
+            I am an <span class="font-semibold">Indian-Origin student</span> pursuing my <span class="font-semibold">Master's in Computer and Information Science </span> degree at the <span class="text-white font-semibold">University of Pennsylvania's</span> School of Engineering and Applied Sciences.
+        </p>
+        <p class="text-lg md:text-xl text-white/80 leading-relaxed font-light">
+            I place significant value in critical expansion of my knowledge base, possibly a knock-on effect of being from a family of academically motivated individuals.
+        </p>
+        <p class="text-lg md:text-xl text-white/80 leading-relaxed font-light">
+            Additionally, I bring the ability to <span class="font-semibold">objectively and pragmatically assess situations</span>, while also retaining <span class="font-semibold">deep empathy and curiosity</span> in my thought.
+        </p>
+        
+    </div>
+</div>
+<div class="font-jost flex flex-col text-white items-center w-full aspect-video">
+    <p class="text-4xl font-bold opacity-80">Latest Resume</p>
+    <p class="text-sm text-gray-400 mb-6 font-bold"> Last Updated: February 7, 2026</p>
 
     <iframe 
         src={resume} 
-        class="w-full max-w-4xl h-200 rounded-lg border border-white/10"
+        class="w-full max-w-4xl h-full rounded-lg border border-white/0 mb-20"
         title="Resume">
     </iframe>
 </div>

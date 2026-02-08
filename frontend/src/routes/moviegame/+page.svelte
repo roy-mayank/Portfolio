@@ -110,7 +110,6 @@
 
 <svelte:head>
     <title>Movie Taste Game</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 </svelte:head>
 
 <div class="min-h-screen bg-fixed font-jost text-white align-middle items-center flex flex-col justify-center">
