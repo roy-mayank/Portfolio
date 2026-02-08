@@ -14,8 +14,8 @@
 <svelte:window bind:scrollY={y} bind:innerHeight={innerHeight} /> 
 
 <svelte:head>
-    <title>Home</title>
-    <meta name="description" content="Svelte demo app" />
+    <title>Mayank Roy's Portfolio</title>
+    <meta name="description" content="Mayank's Portfolio site" />
 </svelte:head>
 
 <div class="relative flex flex-col items-center justify-center h-screen overflow-hidden text-white px-10">
