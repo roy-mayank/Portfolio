@@ -1,13 +1,17 @@
 <script lang="ts">
     import plane from '$lib/images/plane.png';
-    import resume from '$lib/files/resume.pdf'
+    import resume from '$lib/files/resume.pdf';
+    import ProjectModal from '$lib/components/ProjectModal.svelte';
+    import { projects } from '$lib/data/projects.js';
+    import type { ProjectEntry } from '$lib/data/projects.js';
 
-    let y = 0;  
-    let innerHeight = 0;
+    let y = $state(0);
+    let innerHeight = $state(0);
+    let selectedProject = $state<ProjectEntry | null>(null);
 
-    $: scale = 1 + (y / 100); 
-    $: translateY = -(y * 1.5); 
-    $: opacity = Math.min((y/innerHeight)*3, 1);
+    let scale = $derived(1 + (y / 100));
+    let translateY = $derived(-(y * 1.5));
+    let opacity = $derived(innerHeight ? Math.min((y / innerHeight) * 3, 1) : 0);
 </script>
 
 <!-- Binding the window scroll to variable y -->
@@ -37,6 +41,20 @@
         </p>
     </div>
 </div>
+<div class="font-jost flex flex-col items-center w-full px-6 py-16 md:py-24">
+    <div class="max-w-3xl w-full space-y-8 text-center md:text-left bg-white/5 border border-white/10 p-8 md:p-12 rounded-3xl backdrop-blur-sm">
+        <p class="text-lg md:text-xl text-white/90 leading-relaxed font-light">
+            I am an <span class="font-semibold">Indian-Origin student</span> pursuing my <span class="font-semibold">Master's in Computer and Information Science </span> degree at the <span class="text-white font-semibold">University of Pennsylvania's</span> School of Engineering and Applied Sciences.
+        </p>
+        <p class="text-lg md:text-xl text-white/80 leading-relaxed font-light">
+            I place significant value in critical expansion of my knowledge base, possibly a knock-on effect of being from a family of academically motivated individuals.
+        </p>
+        <p class="text-lg md:text-xl text-white/80 leading-relaxed font-light">
+            Additionally, I bring the ability to <span class="font-semibold">objectively and pragmatically assess situations</span>, while also retaining <span class="font-semibold">deep empathy and curiosity</span> in my thought.
+        </p>
+        
+    </div>
+</div>
 <div class="font-jost flex flex-col text-white items-center">
     <h2 class="uppercase text-sm opacity-60 mb-4">About Me</h2>
     <p class="text-4xl md:text-5xl font-bold mb-16">My Interests</p>
@@ -60,18 +78,19 @@
 
     </div>
 </div>
-<div class="font-jost flex flex-col items-center w-full px-6 py-16 md:py-24">
-    <div class="max-w-3xl w-full space-y-8 text-center md:text-left bg-white/5 border border-white/10 p-8 md:p-12 rounded-3xl backdrop-blur-sm">
-        <p class="text-lg md:text-xl text-white/90 leading-relaxed font-light">
-            I am an <span class="font-semibold">Indian-Origin student</span> pursuing my <span class="font-semibold">Master's in Computer and Information Science </span> degree at the <span class="text-white font-semibold">University of Pennsylvania's</span> School of Engineering and Applied Sciences.
-        </p>
-        <p class="text-lg md:text-xl text-white/80 leading-relaxed font-light">
-            I place significant value in critical expansion of my knowledge base, possibly a knock-on effect of being from a family of academically motivated individuals.
-        </p>
-        <p class="text-lg md:text-xl text-white/80 leading-relaxed font-light">
-            Additionally, I bring the ability to <span class="font-semibold">objectively and pragmatically assess situations</span>, while also retaining <span class="font-semibold">deep empathy and curiosity</span> in my thought.
-        </p>
-        
+<div class="font-jost flex flex-col text-white items-center py-16 w-2/3 ">
+    <p class="text-4xl md:text-5xl font-bold mb-16">My Projects</p>
+    <div class="grid grid-cols-1 gap-8 w-full">
+        {#each projects as project (project.id)}
+            <button
+                type="button"
+                class="group flex flex-col items-center justify-center p-10 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 text-left w-full"
+                onclick={() => selectedProject = project}
+            >
+                <p class="text-lg font-medium tracking-tight text-white">{project.name}</p>
+                <p class="text-white/80 text-sm mt-2 text-center">{project.shortDescription}</p>
+            </button>
+        {/each}
     </div>
 </div>
 <div class="font-jost flex flex-col text-white items-center w-full aspect-video">
@@ -84,6 +103,8 @@
         title="Resume">
     </iframe>
 </div>
+
+<ProjectModal project={selectedProject} onClose={() => selectedProject = null} />
 
 <style>
 

@@ -21,6 +21,20 @@ To run the project locally:
 - run ```pnpm run dev``` on downloaded repo's /frontend directory
 - Then use the [scripts](#Scripts)
 
+### Go view-counter (optional)
+
+A small Go service records per-page view counts. The frontend can display "This page: N views" when the API is configured.
+
+**Run Go locally:**
+- From the repo root: `cd go && go run .` (listens on `http://localhost:8080`)
+- In the frontend directory, set env `PUBLIC_GO_API_URL=http://localhost:8080` (e.g. in a `.env` file or when running `pnpm run dev`). Then the SvelteKit app will ping the Go API on each page load and show the count at the bottom.
+
+**Endpoints:**
+- `GET /api/view?path=/some/path` – increment count for that path, returns `{"path":"/some/path","count":N}`
+- `GET /api/stats` – returns all path counts as JSON (e.g. to inspect traffic)
+
+**Deploy Go:** Deploy the `go/` app to Fly.io, Railway, or Render. Set `PUBLIC_GO_API_URL` in your frontend host (Vercel/Netlify) to that URL so the live site sends view pings to your Go service. Counts are in-memory by default (resets on restart); you can add file persistence later if needed.
+
 ## Author
 
 Mayank Roy - CIS Graduate student @ The University of Pennsylvania
