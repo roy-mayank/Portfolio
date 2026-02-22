@@ -13,7 +13,12 @@ func main() {
 	http.HandleFunc("/api/view", s.cors(s.handleView))
 	http.HandleFunc("/api/stats", s.cors(s.handleStats))
 	log.Println("listening on :8080")
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+	log.Println("listening on :", port)
+	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
 
 type server struct {
