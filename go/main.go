@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"net/url"
+	"os"
 	"sync"
 )
 
@@ -12,7 +13,6 @@ func main() {
 	s := &server{counts: make(map[string]int64)}
 	http.HandleFunc("/api/view", s.cors(s.handleView))
 	http.HandleFunc("/api/stats", s.cors(s.handleStats))
-	log.Println("listening on :8080")
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8080"
